@@ -1,0 +1,39 @@
+{
+  "name": "client",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npm run copy:bs && concurrently --kill-others \"webpack-dev-server --hot --inline\"",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "copy:bs": "ncp node_modules/bootstrap/dist/css/bootstrap.css src/css/bootstrap.css"
+  },
+  "author": "Gwynn",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "vue": "^2.4.2",
+    "vue-class-component": "^5.0.2",
+    "vue-property-decorator": "^5.1.1",
+    "vue-router": "^2.7.0"
+  },
+  "devDependencies": {
+    "@types/node": "^8.0.15",
+    "awesome-typescript-loader": "^3.2.1",
+    "concurrently": "^3.5.0",
+    "copy-webpack-plugin": "^4.0.1",
+    "css-loader": "^0.28.4",
+    "html-loader": "^0.4.5",
+    "ncp": "^2.0.0",
+    "node-sass": "^4.5.3",
+    "raw-loader": "^0.5.1",
+    "shelljs": "^0.7.8",
+    "tslint": "^5.5.0",
+    "tslint-loader": "^3.5.3",
+    "typescript": "^2.4.2",
+    "vue-loader": "^12.2.2",
+    "vue-template-compiler": "^2.4.2",
+    "webpack": "^3.3.0",
+    "webpack-dev-server": "^2.5.1"
+  }
+}
