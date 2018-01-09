@@ -8,8 +8,9 @@ let config = {
     "main": helpers.root("/src/main.ts")
   },
   output: {
-    path: helpers.root("/dist/js"),
-    filename: "[name].js"
+    path: helpers.root("/dist"),
+    filename:'assets/js/[hash].[name].js',
+    chunkFilename: "assets/js/[chunkhash].[name].js"
   },
   devtool: "source-map",
   resolve: {
@@ -20,16 +21,16 @@ let config = {
   },
   module: {
     rules: [
-      {test: /\.ts$/, exclude: /node_modules/, enforce: 'pre', loader: 'tslint-loader'},
-      {test: /\.ts$/, exclude: /node_modules/, loader: "awesome-typescript-loader"},
-      {test: /\.html$/, loader: 'html-loader', exclude: ['./src/index.html']}
+      {test: /\.ts$/, use:['tslint-loader'],exclude: /node_modules/, enforce: 'pre'},
+      {test: /\.ts$/, use: ["awesome-typescript-loader"],exclude: /node_modules/, },
+      {test: /\.html$/, use: ['html-loader'], exclude: ['./src/index.html']},
+      {test: /\.css$/, use: ['css-loader']}
     ],
-  }
-//   plugins: [
-//     new CopyWebpackPlugin([
-//       {from: 'src/assets', to: '../assets'},
-//       {from: 'src/css', to: '../css'}
-//     ]),
-//   ]
+  },
+  plugins: [
+    new CopyWebpackPlugin([
+      {from: 'src/assets/css', to: '../css'}
+    ]),
+  ]
 }
 module.exports = config;

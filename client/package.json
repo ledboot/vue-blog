@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "npm run copy:bs && concurrently --kill-others \"webpack-dev-server --hot --inline\"",
+    "dev": "webpack-dev-server --hot --inline",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "copy:bs": "ncp node_modules/bootstrap/dist/css/bootstrap.css src/css/bootstrap.css"
+    "build":"webpack --config config/webpack.config.dev.js"
   },
   "author": "Gwynn",
   "license": "ISC",
@@ -26,7 +26,6 @@
     "html-loader": "^0.4.5",
     "ncp": "^2.0.0",
     "node-sass": "^4.5.3",
-    "raw-loader": "^0.5.1",
     "shelljs": "^0.7.8",
     "tslint": "^5.5.0",
     "tslint-loader": "^3.5.3",
